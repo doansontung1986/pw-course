@@ -1,6 +1,8 @@
 import { expect, Locator, test } from "@playwright/test";
 
-test("Test 2", async ({ page }) => {
+test("Test 2 - Add multiple products to cart and verify totals", async ({
+  page,
+}) => {
   const products = [
     {
       productName: "Product 1",
@@ -26,7 +28,7 @@ test("Test 2", async ({ page }) => {
 
   await page.goto("https://material.playwrightvn.com/");
 
-  await page.locator("a[href='02-xpath-product-page.html']").click();
+  await page.getByRole("link", { name: "Bài học 2: Product page" }).click();
 
   await expect(
     page.getByRole("heading", { name: "Simple E-commerce" }),
